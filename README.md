@@ -28,8 +28,10 @@ git clone git@github.com:nataliia-pysanka/GO_IT_WEB_08.git
 cd GO_IT_WEB_08
 # Create virtual enviroment
 make venv
+# Activate virtual env
+source venv/bin/activate
 # Install requirements
-
+make req
 # Build and run the container
 make up
 # Create database
