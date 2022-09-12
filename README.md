@@ -26,6 +26,10 @@ Docker-compose (https://docs.docker.com/compose/)
 git clone git@github.com:nataliia-pysanka/GO_IT_WEB_08.git
 # Change the directory
 cd GO_IT_WEB_08
+# Create virtual enviroment
+make venv
+# Install requirements
+
 # Build and run the container
 make up
 # Create database

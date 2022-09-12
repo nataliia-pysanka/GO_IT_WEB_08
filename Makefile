@@ -1,7 +1,10 @@
 cnf ?= .env
 include $(cnf)
 export $(shell sed 's/=.*//' $(cnf))
-
+venv:
+	sudo python3 -m venv venv
+	source venv/bin/activate
+	pip install -r requirements.txt
 up:
 	sudo docker-compose --env-file ./.env up -d
 config:
