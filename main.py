@@ -312,7 +312,7 @@ if __name__ == '__main__':
         fill_table_prof_subject(connection)
 
         make_queries(connection)
-    connection.close()
+        connection.close()
 
 
 
