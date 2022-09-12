@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS group_(id_group SERIAL unique NOT NULL,name CHAR(10) unique NOT NULL,description VARCHAR,created_at date,enabled boolean,PRIMARY KEY (id_group));
+CREATE TABLE IF NOT EXISTS student(id_student SERIAL unique NOT NULL,name VARCHAR(20) NOT NULL,surname VARCHAR(20) NOT NULL,date_birth date,id_group INT,PRIMARY KEY (id_student),CONSTRAINT id_group FOREIGN KEY (id_group) REFERENCES group_(id_group));
+CREATE TABLE IF NOT EXISTS professor(id_professor SERIAL unique NOT NULL,name VARCHAR(20) NOT NULL,surname VARCHAR(20) NOT NULL,date_birth date,title VARCHAR,PRIMARY KEY (id_professor));
+CREATE TABLE IF NOT EXISTS rate(id_rate SERIAL unique NOT NULL,val INT NOT NULL,description VARCHAR,PRIMARY KEY (id_rate));
+CREATE TABLE IF NOT EXISTS subject(id_subject SERIAL unique NOT NULL,name VARCHAR NOT NULL,description VARCHAR,PRIMARY KEY (id_subject));
+CREATE TABLE IF NOT EXISTS student_rating(id_student INT,id_subject INT,id_rate INT,date_rate date,CONSTRAINT id_student FOREIGN KEY (id_student)REFERENCES student(id_student),CONSTRAINT id_subject FOREIGN KEY (id_subject)REFERENCES subject(id_subject),CONSTRAINT id_rate FOREIGN KEY (id_rate)REFERENCES rate(id_rate));
+CREATE TABLE IF NOT EXISTS professor_subject(id_professor INT,id_subject INT,CONSTRAINT id_professor FOREIGN KEY (id_professor)REFERENCES professor(id_professor),CONSTRAINT id_subject FOREIGN KEY (id_subject)REFERENCES subject(id_subject));
